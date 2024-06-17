@@ -1,12 +1,12 @@
-﻿namespace Domain.DTOs.Request
+﻿namespace Domain.DTOs.Response
 {
-    public class InvoiceDto
+    public class Invoice
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
         public string Client { get; set; }
         public DateTime Date { get; set; }
         public float Subtotal { get; set; }
         public float Discount { get; set; }
-        public float? Total { get; set; }
+        public float Total { get; set; }
     }
 }
