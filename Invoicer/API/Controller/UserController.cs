@@ -1,9 +1,7 @@
 ﻿using Application.Interfaces;
 using Domain.DTOs.Request;
 using Domain.DTOs.Response;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using Org.BouncyCastle.Asn1.Ocsp;
 
 namespace API.Controller
 {

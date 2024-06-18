@@ -21,7 +21,7 @@ namespace Infrastructure.Persistence.Adapter
                 return false;
 
             return true;
-            
+
         }
     }
 }

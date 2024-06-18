@@ -4,7 +4,6 @@ using Domain.Models;
 using Infrastructure.Persistence.Mappers.Entities;
 using Microsoft.Extensions.Options;
 using MySql.Data.MySqlClient;
-using System.Runtime.InteropServices;
 
 namespace Infrastructure.Persistence.Repositories
 {

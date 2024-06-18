@@ -37,12 +37,12 @@ namespace Application.Implementations
 
                 return GenerateGenericResponse(result, "Success", 200);
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 return GenerateGenericResponse(false, ex.Message, 500);
-            }          
+            }
 
-            
+
         }
 
         public async Task<GenericResponse> UpdateInvoiceAsync(InvoiceDto requestDto)
