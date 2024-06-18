@@ -1,15 +1,16 @@
-FROM mcr.microsoft.com/dotnet/aspnet:8.0.1-alpine3.18 AS build-env
-WORKDIR /App
+FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine3.18 AS build-env
+WORKDIR /app
 
-# Copy everything
+COPY Invoicer/API/API.csproj ./Invoicer/API/
+RUN dotnet restore ./Invoicer/API/API.csproj
+
 COPY . ./
-# Restore as distinct layers
-RUN dotnet restore
-# Build and publish a release
-RUN dotnet publish -c Release -o out
+RUN dotnet publish ./Invoicer/API/API.csproj -c Release -o /app/out
 
-# Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0.1-alpine3.18
-WORKDIR /App
-COPY --from=build-env /App/out .
+WORKDIR /app
+COPY --from=build-env /app/out .
+
+EXPOSE 80
+
 ENTRYPOINT ["dotnet", "API.dll"]
