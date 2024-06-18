@@ -45,6 +45,16 @@ namespace API
 
             services.AddControllers()
                 .ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter = true);
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Invoicer API",
+                    Description = "Invoice detail visualizer"
+                });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -71,6 +81,9 @@ namespace API
                 });
                 endpoints.MapControllers();
             });
+
+            app.UseSwagger(c => c.SerializeAsV2 = true);
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
         }
     }
 }
