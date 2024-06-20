@@ -40,7 +40,7 @@ namespace API
             services.AddCors(options => options.AddDefaultPolicy(
                 policy =>
                 {
-                    policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+                    policy.WithOrigins("https://invoice-project-front.vercel.app").AllowAnyMethod().AllowAnyHeader();
                 }));
 
             services.AddControllers()
