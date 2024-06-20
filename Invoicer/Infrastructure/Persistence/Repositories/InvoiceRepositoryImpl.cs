@@ -26,7 +26,7 @@ namespace Infrastructure.Persistence.Repositories
             var db = DbConnection();
 
             var sql = @"SELECT id, client, date, subtotal, discount, total 
-                        FROM invoicer";
+                        FROM invoice";
 
             return await db.QueryAsync<InvoiceEntity>(sql);
         }
@@ -46,7 +46,7 @@ namespace Infrastructure.Persistence.Repositories
         {
             var db = DbConnection();
 
-            var sql = @"INSERT INTO invoicer(client, date, subtotal, discount, total) 
+            var sql = @"INSERT INTO invoice(client, date, subtotal, discount, total) 
                         Values(@Client, @Date, @Subtotal, @Discount, @Total)";
 
             var result = await db.ExecuteAsync(sql,
@@ -59,7 +59,7 @@ namespace Infrastructure.Persistence.Repositories
         {
             var db = DbConnection();
 
-            var sql = @"Update invoicer
+            var sql = @"Update invoice
                         SET id = @Id, 
                             client = @Client, 
                             date = @Date, 
